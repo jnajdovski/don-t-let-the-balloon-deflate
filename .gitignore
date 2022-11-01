@@ -1,0 +1,12 @@
+node_modules
+
+dist/*
+!dist/index.js
+
+public/*
+!public/index.html
+
+
+!dist/README.md
+
+.parcel-cache

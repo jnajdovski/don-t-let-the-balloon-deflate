@@ -3,7 +3,7 @@ import MenuScene from "./scenes/MenuScene"
 
 export default () => {
     return {
-        type: Phaser.AUTO,
+        type: Phaser.CANVAS,
         width: 1920,
         height: 1080,
         parent: 'game',
@@ -13,7 +13,7 @@ export default () => {
             autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
         },
         loader: {
-            baseURL: 'assets'
+            baseURL: 'src/assets'
         }
     }
 }

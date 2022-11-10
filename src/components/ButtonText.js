@@ -1,15 +1,16 @@
 import { Signal } from 'signals'
 
-export default class ButtonText extends Phaser.GameObjects.Text {
-    constructor() {
-        super(scene, x, y, text)
+export default class ButtonText extends Phaser.GameObjects.BitmapText {
+    constructor(scene, x, y, text) {
+        super(scene, x, y, 'rammetto_one_base', text, 48)
         this.onClick = new Signal()
-        scene.children.add(this)
-        this.setInteractive()
+        this.setInteractive({ cursor: 'pointer' })
         this.on('pointerdown', () => this._onPress())
         this.on('pointerup', () => this._onRelease())
         this.on('pointerover', () => this._onHover())
         this.on('pointerout', () => this._onOut())
+        this.setOrigin(0.5, 0.5)
+        scene.add.existing(this)
     }
 
     _onOut() {

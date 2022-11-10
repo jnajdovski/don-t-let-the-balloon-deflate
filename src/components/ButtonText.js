@@ -1,6 +1,14 @@
+import { Scene } from 'phaser'
 import { Signal } from 'signals'
 
 export default class ButtonText extends Phaser.GameObjects.BitmapText {
+    /**
+     * 
+     * @param {Scene} scene 
+     * @param {number} x 
+     * @param {number} y 
+     * @param {string} text 
+     */
     constructor(scene, x, y, text) {
         super(scene, x, y, 'rammetto_one_base', text, 48)
         this.onClick = new Signal()

@@ -1,4 +1,13 @@
+import { Scene } from "phaser"
+
 export default class Button extends Phaser.GameObjects.Sprite {
+    /**
+     * 
+     * @param {Scene} scene 
+     * @param {number} x 
+     * @param {number} y 
+     * @param {string} texture 
+     */
     constructor(scene, x, y, texture) {
         super(scene, x, y, texture)
         this.onClick = new Signal()

@@ -2,10 +2,6 @@ import { createSprite } from "../utils/utils"
 import ButtonText from "../components/ButtonText"
 
 export default class MenuScene extends Phaser.Scene {
-    background = null;
-    btnStart = null;
-    btnSettings = null;
-    
     constructor() {
         super({key: "menu"});
     }
@@ -13,8 +9,10 @@ export default class MenuScene extends Phaser.Scene {
     create() {
         const screenCenterX = this.cameras.main.worldView.x + this.cameras.main.width / 2;
         const screenCenterY = this.cameras.main.worldView.y + this.cameras.main.height / 2;
-        this.background = createSprite(this, 0,0, 'menu_bg', 0, 0);
-        this.btnStart = new ButtonText(this, screenCenterX, screenCenterY, 'START');
-        this.btnSettings = new ButtonText(this, this.btnStart.x, this.btnStart.y + 100, 'SETTINGS');
+        const background = createSprite(this, 0,0, 'menu_bg', 0, 0);
+        const btnStart = new ButtonText(this, screenCenterX, screenCenterY, 'START')
+        btnStart.onClick.addOnce(() => { this.scene.start('loading') })
+        const btnSettings = new ButtonText(this, btnStart.x, btnStart.y + 100, 'SETTINGS');
+        btnSettings.onClick.addOnce(() => { this.scene.start('settings') })
     }
 }

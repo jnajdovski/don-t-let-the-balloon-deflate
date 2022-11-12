@@ -1,6 +1,11 @@
-import { Scene } from "phaser"
+import { GameObjects, Scene } from "phaser"
+import { Signal } from 'signals'
 
-export default class Button extends Phaser.GameObjects.Sprite {
+export default class Button extends GameObjects.Sprite {
+    /**
+     * @type{Signal}
+     */
+    onClick = null
     /**
      * 
      * @param {Scene} scene 

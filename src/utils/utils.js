@@ -12,7 +12,7 @@ import { GameObjects, Scene } from "phaser";
  * @returns {GameObjects.Sprite}
  */
 export const createSprite = (scene, x, y, textureKey, anchorX = 0.5, anchorY = 0.5, interactive = false) => {
-    let newSprite = new Phaser.GameObjects.Sprite(scene, x, y, textureKey);
+    let newSprite = new GameObjects.Sprite(scene, x, y, textureKey);
     newSprite.setOrigin(anchorX, anchorY);
 
     if (interactive) {

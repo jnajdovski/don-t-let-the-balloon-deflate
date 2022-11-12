@@ -1,7 +1,11 @@
-import { Scene } from 'phaser'
+import { GameObjects, Scene } from 'phaser'
 import { Signal } from 'signals'
 
-export default class ButtonText extends Phaser.GameObjects.BitmapText {
+export default class ButtonText extends GameObjects.BitmapText {
+    /**
+     * @type{Signal}
+     */
+    onClick = null;
     /**
      * 
      * @param {Scene} scene 

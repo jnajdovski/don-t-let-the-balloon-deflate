@@ -17,16 +17,21 @@ export default class Player{
     /**
      * @type{number}
      */
-    speed = 10;
+    speed = 0.01;
     /**
      * @type{number}
      */
-    playerScale = 0.3;
+    playerScale = 0.1;
 
     /**
      * @type {Phaser.Physics.Matter.Sprite}
      */
-     player = null;
+    player = null;
+
+    /**
+     * @type{string}
+     */
+    currentDir = this.dirIdle
 
     /**
      * 
@@ -39,7 +44,7 @@ export default class Player{
         console.log(this.player.body);
         scene.anims.create({
             key: 'run',
-            frameRate: 20,
+            frameRate: 18,
             frames: scene.anims.generateFrameNumbers(`player`, {start: 0, end: 5}),
             repeat: -1
         })
@@ -47,7 +52,6 @@ export default class Player{
         this.player.setScale(this.playerScale);
 
         this.player.play('run');
-        this.player.setVelocity(0,0);
     }
 
     /**
@@ -58,20 +62,23 @@ export default class Player{
         if (direction === this.dirLeft) {
             this.player.setScale(this.playerScale * -1, this.playerScale);
             this._moveLeft();
+            this.currentDir = direction;
         } else if (direction === this.dirRight) {
             this.player.setScale(this.playerScale);
             this._moveRight();
-        } else if (direction == this.dirIdle) {
+            this.currentDir = direction;
+        } else if (direction == this.dirIdle && this.currentDir !== direction) {
             this.player.setScale(this.playerScale);
-            this.player.setVelocityX(0)
+            this.player.thrust(0)
+            this.currentDir = direction;
         }
     }
 
     _moveLeft() {
-        this.player.setVelocityX(-this.speed);
+        this.player.thrust(-this.speed)
     }
 
     _moveRight() {
-        this.player.setVelocityX(this.speed);
+        this.player.thrust(this.speed)
     }
 }

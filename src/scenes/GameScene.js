@@ -40,7 +40,8 @@ export default class GameScene extends Phaser.Scene {
     }
 
     _createPlayer() {
-        this.player = new Player(this, this.screenCenterX, this.screenCenterY + 250);
+        this.matter.world.setBounds(0, 0, 1920, 1080);
+        this.player = new Player(this, this.screenCenterX, this.screenCenterY + 350);
     }
 
     update() {
@@ -53,13 +54,12 @@ export default class GameScene extends Phaser.Scene {
             if (this.cursors.right.isDown) {
                 this.player.move('right')
                 this.playerMoving = 'right'
-            } 
+            }
 
             if (this.cursors.left.isUp && this.cursors.right.isUp) {
                 this.player.move('idle')
                 this.playerMoving = 'idle'
             }
-
         }
     }
 }

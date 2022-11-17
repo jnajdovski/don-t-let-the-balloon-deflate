@@ -9,11 +9,6 @@ on:
 jobs:
   itchio-deploy:
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: don-t-let-the-balloon-deflate
-
     steps:
       - uses: actions/checkout@v3
 

@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest]
 
     defaults:
       run:
@@ -28,7 +28,7 @@ jobs:
           cache: 'npm'
         
       - run: npm ci
-      
+
       - run: build
 
       - name: Deploy

@@ -5,7 +5,7 @@ on:
     branches:
       - master
       paths:
-      - don-t-let-the-balloon-deflate/**
+      - /**
   workflow_dispatch:
 
 jobs:

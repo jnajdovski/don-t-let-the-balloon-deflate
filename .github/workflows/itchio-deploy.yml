@@ -25,8 +25,8 @@ jobs:
           cache: 'npm'
         
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci --ignore-scripts
+        uses: bahmutov/npm-install@HEAD
+        run: npm ci
         working-directory: don-t-let-the-balloon-deflate
 
       - run: build

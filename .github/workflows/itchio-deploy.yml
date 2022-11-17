@@ -8,10 +8,7 @@ on:
 
 jobs:
   itchio-deploy:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
+    runs-on: windows-latest
 
     defaults:
       run:

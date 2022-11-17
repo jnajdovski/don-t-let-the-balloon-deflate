@@ -23,7 +23,7 @@ jobs:
         run: npm ci
 
       - name: Build Game
-      - run: npm run build
+        run: npm run build
 
       - name: Deploy
         uses: manleydev/butler-publish-itchio-action@v1.0.3

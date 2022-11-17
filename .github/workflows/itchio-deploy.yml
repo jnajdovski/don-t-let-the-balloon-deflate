@@ -28,7 +28,6 @@ jobs:
           cache: 'npm'
         
       - name: Install npm
-        uses: ng-easy/npm-install@v2
         run: npm ci
         run: npm run build
 

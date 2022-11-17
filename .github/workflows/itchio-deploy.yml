@@ -26,7 +26,6 @@ jobs:
         
       - name: Install dependencies
         uses: bahmutov/npm-install@HEAD
-        run: npm ci
         working-directory: don-t-let-the-balloon-deflate
 
       - run: build

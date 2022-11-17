@@ -29,7 +29,7 @@ jobs:
         
       - name: Install npm
         run: npm ci
-        run: npm run build
+        run: build
 
       - name: Deploy
         uses: manleydev/butler-publish-itchio-action@v1.0.3

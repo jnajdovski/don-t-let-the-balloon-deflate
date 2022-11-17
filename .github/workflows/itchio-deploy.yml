@@ -27,9 +27,7 @@ jobs:
       - name: Install dependencies
         uses: bahmutov/npm-install@HEAD
 
-      - name: Build gGame
-        run: build
-        working-directory: don-t-let-the-balloon-deflate
+      - run: npm run build
 
       - name: Deploy
         uses: manleydev/butler-publish-itchio-action@v1.0.3

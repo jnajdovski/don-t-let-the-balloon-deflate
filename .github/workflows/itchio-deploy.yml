@@ -23,7 +23,9 @@ jobs:
           cache: 'npm'
 
       - run: npm install
-      - run: npm build
+      - run: npm run build
+
+
         - uses: manleydev/butler-publish-itchio-action@v1.0.3
           env:
             BUTLER_CREDENTIALS: ${{ secrets.ITCH_IO_API_KEY }}

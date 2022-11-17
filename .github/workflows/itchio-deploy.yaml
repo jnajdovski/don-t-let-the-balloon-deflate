@@ -1,0 +1,39 @@
+name: Itch.io Deploy Workflow
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  itchio-deploy:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v3
+
+      # Setup Nodejs
+      - name: Setup Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+          cache: 'npm'
+
+      # Install libraries
+      - name: Install dependencies
+        run: npm install
+
+      # Compile the code
+      - name: Build project
+        run: npm run build
+
+        - uses: manleydev/butler-publish-itchio-action@v1.0.3
+          env:
+            BUTLER_CREDENTIALS: ${{ secrets.ITCH_IO_API_KEY }}
+            CHANNEL: HTML
+            ITCH_GAME: dont-let-the-balloon-to-deflate
+            ITCH_USER: j_najdovski
+            PACKAGE: dist

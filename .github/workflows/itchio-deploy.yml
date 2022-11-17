@@ -22,9 +22,10 @@ jobs:
           node-version: "16.x"
           cache: 'npm'
         
-      - uses: ng-easy/npm-install@v2
-      - run: npm ci
-      - run: npm run build
+      - name: "Install npm"
+        uses: ng-easy/npm-install@v2
+        run: npm ci
+        run: npm run build
 
 
         - uses: manleydev/butler-publish-itchio-action@v1.0.3

@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+      paths:
+      - don-t-let-the-balloon-deflate/**
   workflow_dispatch:
 
 jobs:
@@ -12,6 +14,11 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
+
+    defaults:
+    run:
+      working-directory: don-t-let-the-balloon-deflate
+
     steps:
       - uses: actions/checkout@v3
 
@@ -22,16 +29,16 @@ jobs:
           node-version: "16.x"
           cache: 'npm'
         
-      - name: "Install npm"
+      - name: Install npm
         uses: ng-easy/npm-install@v2
         run: npm ci
         run: npm run build
 
-
-        - uses: manleydev/butler-publish-itchio-action@v1.0.3
-          env:
-            BUTLER_CREDENTIALS: ${{ secrets.ITCH_IO_API_KEY }}
-            CHANNEL: HTML
-            ITCH_GAME: dont-let-the-balloon-to-deflate
-            ITCH_USER: j_najdovski
-            PACKAGE: dist
+      - name: Deploy
+        uses: manleydev/butler-publish-itchio-action@v1.0.3
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.ITCH_IO_API_KEY }}
+          CHANNEL: HTML
+          ITCH_GAME: dont-let-the-balloon-to-deflate
+          ITCH_USER: j_najdovski
+          PACKAGE: dist

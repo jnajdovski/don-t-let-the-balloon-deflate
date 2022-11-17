@@ -28,7 +28,7 @@ jobs:
 
       # Compile the code
       - name: Build project
-        run: npm run build
+        run:  npm build
 
         - uses: manleydev/butler-publish-itchio-action@v1.0.3
           env:

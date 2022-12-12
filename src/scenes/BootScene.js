@@ -25,6 +25,6 @@ export default class BootScene extends Phaser.Scene {
     }
 
     nextScene() {
-        this.scene.start('menu')
+        this.scene.start('plus')
     }
 }

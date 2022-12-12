@@ -17,6 +17,8 @@
     "parcel": "^2.8.1"
   },
   "dependencies": {
+    "@toolcase/base": "^0.18.19",
+    "@toolcase/phaser-plus": "^1.0.2",
     "phaser": "^3.55.2",
     "signals": "^1.0.0"
   }

@@ -1,7 +1,8 @@
 node_modules
 
 dist/*
-!dist/index.js
+!assets
+!libs
 
 public/*
 !public/index.html

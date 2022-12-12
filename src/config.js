@@ -29,7 +29,7 @@ export default () => {
             autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
         },
         loader: {
-            baseURL: 'src/assets'
+            baseURL: 'assets'
         }
     }
 }

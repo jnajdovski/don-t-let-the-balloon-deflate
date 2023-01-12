@@ -26,7 +26,7 @@ export default class MenuScene extends Scene {
         this.background = createSprite(this, 0,0, 'menu_bg', 0, 0);
 
         this.btnStart = new ButtonText(this, screenCenterX, screenCenterY, 'START');
-        this.btnStart.onClick.addOnce(() => { this.scene.start('loading') });
+        this.btnStart.onClick.addOnce(() => { this.scene.start('game') });
 
         this.btnSettings = new ButtonText(this, this.btnStart.x, this.btnStart.y + 100, 'SETTINGS');
         this.btnSettings.onClick.addOnce(() => { this.scene.start('settings') });

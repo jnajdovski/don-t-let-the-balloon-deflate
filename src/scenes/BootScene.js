@@ -21,6 +21,10 @@ export default class BootScene extends Phaser.Scene {
         console.log('Loading assets');
         this.load.image('menu_bg', 'bg.jpg')
         this.load.image('ground', 'ground.png')
+        this.load.image('cursor_target', 'target.png')
+        this.load.image('player_bullet', 'player_bullet')
+        this.load.image('enemy_bullet', 'enemy_bullet')
+        this.load.spritesheet('player', 'character/player_run.png', {frameWidth: 724, frameHeight: 1302})
         this.load.bitmapFont('second', 'fonts/second/second.png', 'fonts/second/second.xml')
         this.load.bitmapFont('rammetto_one_base', 'fonts/rammetto_one_base/rammetto_one_base.png', 'fonts/rammetto_one_base/rammetto_one_base.xml')
     }

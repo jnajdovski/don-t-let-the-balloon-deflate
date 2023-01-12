@@ -23,12 +23,11 @@ class Player extends Perspective2D.GameObject2D {
             inertia: Infinity,
         })
 
-        console.log('create player')
-
         this.scene.matter.add.gameObject(this)
         this.setExistingBody(compoundBody)
-
         this.scene.matter.world.remove(this.body)
+
+        console.log('create player')
     }
 
     onAdd() {
@@ -36,7 +35,6 @@ class Player extends Perspective2D.GameObject2D {
     }
 
     onUpdate(time, delta) {
-        
     }
 
     onRemove() {

@@ -1,6 +1,5 @@
 import BootScene from "./scenes/BootScene"
 import MenuScene from "./scenes/MenuScene"
-import LoadingScene from "./scenes/LoadingScene"
 import GameScene from "./scenes/GameScene"
 import SettingsScene from "./scenes/SettingsScene"
 import PlusScene from "./scenes/PlusScene"
@@ -11,7 +10,7 @@ export default () => {
         width: 1920,
         height: 1080,
         parent: 'game',
-        scene: [new BootScene, new MenuScene, new LoadingScene, new GameScene, new SettingsScene, new PlusScene],
+        scene: [new BootScene, new MenuScene, new GameScene, new SettingsScene, new PlusScene],
         physics: {
             default: 'matter',
             matter: {

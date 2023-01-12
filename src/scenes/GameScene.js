@@ -32,6 +32,11 @@ export default class GameScene extends Scene {
      */
     playerMoving = null;
 
+    /**
+     * @type {Phaser.GameObjects.Sprite}
+     */
+    cursorTarget = null;
+
     constructor() {
         super({key: "game"});
     }
@@ -43,14 +48,22 @@ export default class GameScene extends Scene {
         this.ground = this.add.tileSprite(0, 1200, this.cameras.main.width, this.cameras.main.height, 'ground');
         this.ground.setOrigin(0, 0.5)
         this.cursors = this.input.keyboard.createCursorKeys()
-        console.log('create game scene');
         this._createPlayer()
+        this.cursorTarget = createSprite(this, 0, 0, 'cursor_target');
+        this.cursorTarget.setScale(0.1)
+        this.input.on('pointermove', (pointer) => {
+            this.cursorTarget.x = pointer.x;
+            this.cursorTarget.y = pointer.y;
+        });
+
         this.children.add(this.ground);
+        this.children.add(this.cursorTarget);
+        console.log('create game scene');
     }
 
     _createPlayer() {
         this.matter.world.setBounds(0, 0, 1920, 1080);
-        this.player = new Player(this, this.screenCenterX, this.screenCenterY + 350);
+        this.player = new Player(this, this.screenCenterX - 700, this.screenCenterY + 350);
     }
 
     update(time, delta) {
